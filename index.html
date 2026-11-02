@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arun Engineers – Builders &amp; Contractors, Erode</title>
+<meta name="description" content="Arun Engineers, Erode – residential, renovation and commercial construction. Call 74184 80279 or email arunengineerserode@gmail.com.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,400..900&family=IBM+Plex+Mono:wght@500&family=Noto+Sans+Tamil:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0B2A55; --page:#EAF4FC; --accent:#4DA3FF; --muted:#3F5B80;
+  --body:#2E4A6E; --soft:#C4D8EE; --field:#13396E; --field-line:#5C82B5;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--page);color:var(--navy);font-family:'Archivo',system-ui,sans-serif}
+a{color:var(--navy)} a:hover{color:var(--muted)}
+.wrap{max-width:1200px;margin:0 auto;padding-left:24px;padding-right:24px}
+.mono{font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+.btn{display:inline-flex;align-items:center;min-height:44px;text-decoration:none;font-weight:800}
+.btn-accent{background:var(--accent);color:var(--navy)}
+.btn-accent:hover{color:var(--navy);filter:brightness(1.08)}
+
+/* Header */
+header{background:var(--navy);color:var(--page)}
+nav{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding-top:18px;padding-bottom:18px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--page)}
+.brand:hover{color:var(--page)}
+.logo{width:52px;height:52px;background:var(--accent);display:flex;align-items:center;justify-content:center;flex:none}
+.brand-name{font-weight:900;font-stretch:75%;font-size:24px;letter-spacing:.02em;text-transform:uppercase}
+.menu{display:flex;flex-wrap:wrap;align-items:center;gap:28px;font-weight:600;font-size:15px}
+.menu a{color:var(--page);text-decoration:none}
+.menu .btn{padding:12px 20px}
+
+/* Hero */
+.hero{background:var(--navy);color:var(--page);border-bottom:10px solid var(--accent)}
+.hero .wrap{padding-top:72px;padding-bottom:88px;display:flex;flex-wrap:wrap;gap:48px;align-items:flex-end}
+.hero-text{flex:999 1 520px;min-width:0}
+.eyebrow{color:var(--accent);margin:0 0 20px}
+h1{margin:0;font-weight:900;font-stretch:75%;font-size:clamp(56px,9vw,128px);line-height:.9;text-transform:uppercase;letter-spacing:-.01em}
+.tamil{margin:20px 0 0;font-family:'Noto Sans Tamil',sans-serif;font-weight:700;font-size:clamp(24px,3vw,36px);line-height:1.3;color:var(--accent)}
+.intro{margin:28px 0 0;font-size:20px;line-height:1.5;max-width:560px;color:var(--soft)}
+.ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px}
+.ctas .btn{padding:16px 28px;font-size:17px}
+.btn-outline{border:2px solid var(--page);color:var(--page);padding:14px 26px!important}
+.btn-outline:hover{background:var(--page);color:var(--navy)}
+.hero-photo{flex:1 1 340px;height:420px;position:relative;overflow:hidden;border:4px solid var(--accent);margin:0}
+.hero-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-photo figcaption{position:absolute;left:0;bottom:0;font-family:'IBM Plex Mono',monospace;font-size:12px;background:var(--navy);color:var(--page);padding:8px 12px}
+
+/* Projects */
+.projects{padding-top:88px;padding-bottom:72px}
+.label{color:var(--muted);margin:0 0 12px}
+h2{margin:0;font-weight:900;font-stretch:75%;font-size:clamp(44px,6vw,80px);line-height:.95;text-transform:uppercase}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:28px;margin-top:36px}
+.card{background:#fff;border:2px solid var(--navy);border-top:8px solid var(--accent);margin:0}
+.card svg{display:block;width:100%;height:auto;border-bottom:2px solid var(--navy)}
+.card-body{padding:22px 22px 24px}
+.card h3{margin:0 0 10px;font-weight:900;font-stretch:85%;font-size:30px;text-transform:uppercase}
+.card p{margin:0;font-size:16px;line-height:1.5;color:var(--body)}
+
+/* Contact */
+.contact{background:var(--accent)}
+.contact .wrap{padding-top:88px;padding-bottom:88px;display:flex;flex-wrap:wrap;gap:56px}
+.contact-info{flex:1 1 380px;min-width:0}
+.contact h2{margin-bottom:32px}
+.details{display:flex;flex-direction:column;gap:22px;font-size:18px;font-style:normal}
+.details .k{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px}
+.details .phone{font-weight:800;font-size:26px;text-decoration:none}
+.details .email{font-weight:800;font-size:22px;overflow-wrap:anywhere}
+.details .v{font-weight:600;line-height:1.5}
+form{flex:1 1 380px;min-width:0;background:var(--navy);color:var(--page);padding:36px;display:flex;flex-direction:column;gap:18px}
+form h3{margin:0;font-weight:800;font-size:26px;text-transform:uppercase;font-stretch:85%}
+label{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:600}
+input,textarea{font:inherit;font-weight:400;font-size:16px;padding:12px;border:2px solid var(--field-line);background:var(--field);color:var(--page);min-height:48px}
+textarea{resize:vertical}
+input:focus,textarea:focus{outline:3px solid var(--accent);outline-offset:1px}
+form button{background:var(--accent);color:var(--navy);border:0;padding:16px;font:inherit;font-weight:800;font-size:17px;cursor:pointer;min-height:52px}
+form button:hover{filter:brightness(1.08)}
+.form-note{margin:0;font-size:13px;color:var(--soft)}
+
+/* Footer */
+footer{background:var(--navy);color:var(--soft)}
+footer .wrap{padding-top:32px;padding-bottom:32px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:14px}
+footer strong{color:var(--page);text-transform:uppercase;letter-spacing:.04em}
+
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+@media (max-width:600px){
+  .menu{gap:18px}
+  .hero .wrap{padding-top:48px;padding-bottom:56px}
+  .hero-photo{height:280px}
+  form{padding:24px}
+}
+</style>
+</head>
+<body>
+
+<header>
+<nav class="wrap" aria-label="Main">
+<a class="brand" href="#top">
+<span class="logo">
+<svg role="img" aria-label="Thanjavur Big Temple logo" width="42" height="42" viewBox="0 0 48 48"><rect x="3" y="40" width="42" height="4" fill="#0B2A55"/><rect x="6" y="34" width="36" height="6" fill="#0B2A55"/><polygon points="10,34 38,34 38,30 36,30 36,26 34,26 34,22 32,22 32,18 30,18 30,14 18,14 18,18 16,18 16,22 14,22 14,26 12,26 12,30 10,30" fill="#0B2A55"/><path d="M12 30H36M14 26H34M16 22H32M18 18H30" stroke="#4DA3FF" stroke-width="0.8"/><rect x="20" y="11" width="8" height="3" fill="#0B2A55"/><path d="M17 11Q24 1 31 11Z" fill="#0B2A55"/><rect x="23" y="2.5" width="2" height="4" fill="#0B2A55"/><circle cx="24" cy="2.2" r="1.2" fill="#0B2A55"/><rect x="22" y="35" width="4" height="5" fill="#4DA3FF"/></svg>
+</span>
+<span class="brand-name">Arun Engineers</span>
+</a>
+<div class="menu">
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+<a class="btn btn-accent" href="tel:+917418480279">Call 74184 80279</a>
+</div>
+</nav>
+</header>
+
+<main>
+<section id="top" class="hero">
+<div class="wrap">
+<div class="hero-text">
+<p class="mono eyebrow">Builders &amp; contractors · Erode</p>
+<h1>We build<br>what lasts.</h1>
+<p class="tamil" lang="ta">காலத்தை வெல்லும் கட்டுமானம்.</p>
+<p class="intro">Homes, offices and commercial spaces — planned carefully, built solidly and handed over on time.</p>
+<div class="ctas">
+<a class="btn btn-accent" href="#projects">See our projects</a>
+<a class="btn btn-outline" href="#contact">Get a quote</a>
+</div>
+</div>
+<figure class="hero-photo">
+<img src="hero.jpg" alt="Newly built two-storey independent house lit up at dusk" width="960" height="634">
+<figcaption>Recently handed over · G+1 independent house</figcaption>
+</figure>
+</div>
+</section>
+
+<section id="projects" class="projects wrap">
+<p class="mono label">01 — Our work</p>
+<h2>Projects we've done</h2>
+<div class="cards">
+
+<article class="card">
+<svg role="img" aria-label="Blueprint elevation drawing of a house" viewBox="0 0 400 220">
+<defs><pattern id="g1" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#2F5C96" stroke-width="0.6"/></pattern></defs>
+<rect width="400" height="220" fill="#123A72"/><rect width="400" height="220" fill="url(#g1)"/>
+<g fill="none" stroke="#DCEBFA" stroke-width="2" stroke-linejoin="round"><path d="M70 190H330"/><path d="M100 190V110H300V190"/><path d="M85 112L200 50L315 112"/><path d="M250 78V52H272V90"/><rect x="180" y="135" width="40" height="55"/><rect x="120" y="128" width="40" height="32"/><path d="M140 128V160M120 144H160"/><rect x="240" y="128" width="40" height="32"/><path d="M260 128V160M240 144H280"/></g>
+<g fill="none" stroke="#7CC4FA" stroke-width="1" stroke-dasharray="4 3"><path d="M100 205H300M100 200V210M300 200V210"/><path d="M345 50V190M340 50H350M340 190H350"/></g>
+<g fill="#7CC4FA" font-family="monospace" font-size="10"><text x="182" y="216">12.0 m</text><text x="352" y="124">7.5 m</text><text x="14" y="22">ELEVATION · RES-01</text></g>
+</svg>
+<div class="card-body"><h3>Residential</h3><p>Independent houses, villas and first-floor additions, from foundation to finishing.</p></div>
+</article>
+
+<article class="card">
+<svg role="img" aria-label="Blueprint floor plan showing an existing building and a new extension" viewBox="0 0 400 220">
+<defs><pattern id="g2" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#2F5C96" stroke-width="0.6"/></pattern></defs>
+<rect width="400" height="220" fill="#123A72"/><rect width="400" height="220" fill="url(#g2)"/>
+<g fill="none" stroke="#DCEBFA" stroke-width="2" stroke-linejoin="round"><rect x="60" y="50" width="200" height="140"/><path d="M60 120H260M160 50V120M120 120V190"/><path d="M100 190A20 20 0 0 1 120 170"/><rect x="190" y="70" width="44" height="30"/></g>
+<g fill="none" stroke="#7CC4FA" stroke-width="2" stroke-dasharray="6 4"><path d="M260 50H340V190H260"/><path d="M260 120H340"/></g>
+<g fill="none" stroke="#DCEBFA" stroke-width="2" stroke-linecap="round"><path d="M300 150L345 105"/><path d="M335 95L355 115L362 108L342 88Z"/></g>
+<g fill="#7CC4FA" font-family="monospace" font-size="10"><text x="14" y="22">PLAN · RENOVATION</text><text x="272" y="88">NEW</text><text x="272" y="100">EXTENSION</text><text x="76" y="88">EXISTING</text></g>
+</svg>
+<div class="card-body"><h3>Renovation</h3><p>Repairs, remodelling, flooring and extensions for existing homes and buildings.</p></div>
+</article>
+
+<article class="card">
+<svg role="img" aria-label="Blueprint elevation drawing of a three-storey commercial building with shop shutters" viewBox="0 0 400 220">
+<defs><pattern id="g3" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#2F5C96" stroke-width="0.6"/></pattern></defs>
+<rect width="400" height="220" fill="#123A72"/><rect width="400" height="220" fill="url(#g3)"/>
+<g fill="none" stroke="#DCEBFA" stroke-width="2" stroke-linejoin="round"><path d="M60 190H340"/><rect x="90" y="40" width="220" height="150"/><path d="M90 90H310M90 140H310"/><rect x="110" y="52" width="40" height="26"/><rect x="180" y="52" width="40" height="26"/><rect x="250" y="52" width="40" height="26"/><rect x="110" y="102" width="40" height="26"/><rect x="180" y="102" width="40" height="26"/><rect x="250" y="102" width="40" height="26"/><rect x="104" y="150" width="88" height="40"/><path d="M104 158H192M104 166H192M104 174H192M104 182H192"/><rect x="208" y="150" width="88" height="40"/><path d="M208 158H296M208 166H296M208 174H296M208 182H296"/><path d="M84 146L316 146"/></g>
+<g fill="none" stroke="#7CC4FA" stroke-width="1" stroke-dasharray="4 3"><path d="M90 205H310M90 200V210M310 200V210"/><path d="M330 40V190M325 40H335M325 190H335"/></g>
+<g fill="#7CC4FA" font-family="monospace" font-size="10"><text x="184" y="216">15.0 m</text><text x="338" y="118">G+2</text><text x="14" y="22">ELEVATION · COM-01</text></g>
+</svg>
+<div class="card-body"><h3>Commercial</h3><p>Shops, offices and showrooms built on time and within budget.</p></div>
+</article>
+
+</div>
+</section>
+
+<section id="contact" class="contact">
+<div class="wrap">
+<div class="contact-info">
+<p class="mono" style="margin:0 0 12px">02 — Contact</p>
+<h2>Let's talk about your build.</h2>
+<address class="details">
+<div><div class="k">Phone</div><a class="phone" href="tel:+917418480279">+91 74184 80279</a></div>
+<div><div class="k">Email</div><a class="email" href="mailto:arunengineerserode@gmail.com">arunengineerserode@gmail.com</a></div>
+<div><div class="k">Office</div><div class="v">8B, Nellu Kuti Mettu Thottam<br>Vasavi College Post, Bhavani (via)<br>Erode District – 638316</div></div>
+<div><div class="k">Hours</div><div class="v">Mon – Sat, 9 am – 6 pm</div></div>
+</address>
+</div>
+<form id="quote" novalidate>
+<h3>Request a quote</h3>
+<label>Your name<input name="name" type="text" autocomplete="name" required></label>
+<label>Phone number<input name="phone" type="tel" autocomplete="tel" inputmode="tel" required></label>
+<label>What are you planning to build?<textarea name="message" rows="4"></textarea></label>
+<button type="submit">Send enquiry</button>
+<p class="form-note">This opens your email app with the details filled in, addressed to arunengineerserode@gmail.com.</p>
+</form>
+</div>
+</section>
+</main>
+
+<footer>
+<div class="wrap">
+<strong>Arun Engineers</strong>
+<span>© <span id="yr">2026</span> Arun Engineers. All rights reserved.</span>
+</div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+document.getElementById('quote').addEventListener('submit', function (e) {
+  e.preventDefault();
+  var el = e.target.elements;
+  var name = el['name'].value.trim(), phone = el['phone'].value.trim(), msg = el['message'].value.trim();
+  if (!name || !phone) { (name ? el['phone'] : el['name']).focus(); return; }
+  var subject = 'Quote request from ' + name;
+  var body = 'Name: ' + name + '\nPhone: ' + phone + '\n\nPlanning to build:\n' + msg;
+  window.location.href = 'mailto:arunengineerserode@gmail.com?subject=' +
+    encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+});
+</script>
+</body>
+</html>

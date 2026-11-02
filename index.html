@@ -79,7 +79,12 @@ textarea{resize:vertical}
 input:focus,textarea:focus{outline:3px solid var(--accent);outline-offset:1px}
 form button{background:var(--accent);color:var(--navy);border:0;padding:16px;font:inherit;font-weight:800;font-size:17px;cursor:pointer;min-height:52px}
 form button:hover{filter:brightness(1.08)}
-.form-note{margin:0;font-size:13px;color:var(--soft)}
+.form-note{margin:0;font-size:14px;color:var(--soft)}
+.form-note.ok{color:#8FE3A8;font-weight:700}
+.form-note.err{color:#FFB4A8;font-weight:700}
+form button:disabled{opacity:.6;cursor:wait}
+.wa{justify-content:center;border:2px solid #25D366;color:#EAF4FC;padding:12px 16px;font-size:15px}
+.wa:hover{background:#25D366;color:var(--navy)}
 
 /* Footer */
 footer{background:var(--navy);color:var(--soft)}
@@ -192,8 +197,9 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-off
 <label>Your name<input name="name" type="text" autocomplete="name" required></label>
 <label>Phone number<input name="phone" type="tel" autocomplete="tel" inputmode="tel" required></label>
 <label>What are you planning to build?<textarea name="message" rows="4"></textarea></label>
-<button type="submit">Send enquiry</button>
-<p class="form-note">This opens your email app with the details filled in, addressed to arunengineerserode@gmail.com.</p>
+<button type="submit" id="send">Send enquiry</button>
+<a class="btn wa" id="wa" href="https://wa.me/917418480279" target="_blank" rel="noopener">Send on WhatsApp instead</a>
+<p class="form-note" id="status" role="status" aria-live="polite">We'll reply by phone within one working day.</p>
 </form>
 </div>
 </section>
@@ -208,15 +214,56 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-off
 
 <script>
 document.getElementById('yr').textContent = new Date().getFullYear();
-document.getElementById('quote').addEventListener('submit', function (e) {
+var form = document.getElementById('quote');
+var statusEl = document.getElementById('status');
+var sendBtn = document.getElementById('send');
+var waBtn = document.getElementById('wa');
+
+function fields() {
+  var el = form.elements;
+  return { el: el, name: el['name'].value.trim(), phone: el['phone'].value.trim(), msg: el['message'].value.trim() };
+}
+function setStatus(text, kind) { statusEl.textContent = text; statusEl.className = 'form-note' + (kind ? ' ' + kind : ''); }
+
+// WhatsApp: pre-fill the message with whatever the visitor typed
+function updateWa() {
+  var f = fields();
+  var text = 'Hello Arun Engineers, I would like a quote.' +
+    (f.name ? '\nName: ' + f.name : '') + (f.phone ? '\nPhone: ' + f.phone : '') +
+    (f.msg ? '\nPlanning to build: ' + f.msg : '');
+  waBtn.href = 'https://wa.me/917418480279?text=' + encodeURIComponent(text);
+}
+form.addEventListener('input', updateWa);
+updateWa();
+
+form.addEventListener('submit', function (e) {
   e.preventDefault();
-  var el = e.target.elements;
-  var name = el['name'].value.trim(), phone = el['phone'].value.trim(), msg = el['message'].value.trim();
-  if (!name || !phone) { (name ? el['phone'] : el['name']).focus(); return; }
-  var subject = 'Quote request from ' + name;
-  var body = 'Name: ' + name + '\nPhone: ' + phone + '\n\nPlanning to build:\n' + msg;
-  window.location.href = 'mailto:arunengineerserode@gmail.com?subject=' +
-    encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  var f = fields();
+  if (!f.name || !f.phone) {
+    setStatus('Please enter your name and phone number.', 'err');
+    (f.name ? f.el['phone'] : f.el['name']).focus();
+    return;
+  }
+  sendBtn.disabled = true; sendBtn.textContent = 'Sending…'; setStatus('Sending your enquiry…');
+  fetch('https://formsubmit.co/ajax/arunengineerserode@gmail.com', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify({
+      _subject: 'New enquiry from website: ' + f.name,
+      _template: 'table', _captcha: 'false',
+      Name: f.name, Phone: f.phone, 'Planning to build': f.msg || '-'
+    })
+  }).then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); })
+    .then(function (res) {
+      if (res.ok && String(res.d.success) === 'true') {
+        form.reset(); updateWa();
+        setStatus('Thank you! Your enquiry has been sent. We will call you soon.', 'ok');
+      } else { throw new Error(res.d && res.d.message); }
+    })
+    .catch(function () {
+      setStatus('Sorry, it could not be sent. Please use WhatsApp or call 74184 80279.', 'err');
+    })
+    .finally(function () { sendBtn.disabled = false; sendBtn.textContent = 'Send enquiry'; });
 });
 </script>
 </body>
